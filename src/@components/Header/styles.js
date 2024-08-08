@@ -25,8 +25,9 @@ export const HeaderContent = styled.View`
 `
 
 export const Title = styled.Text`
-    font-family: Roboto_400Regular;
-    color: #fff;
+    font-family: Roboto_500Medium;
+    color: #fff; 
+    font-size: 28px;
 `
 
 export const Subtitle = styled.Text`
