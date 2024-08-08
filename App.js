@@ -1,20 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { Container, HomeContainer, Title } from './styles';
+import { Header } from './src/@components/Header/index';
+import { 
+  Roboto_700Bold,
+  Roboto_400Regular,
+  Roboto_100Thin,
+  useFonts } from '@expo-google-fonts/roboto';
+import { Routes } from './src/routes/index';
+
 
 export default function App() {
+  const [ fontloaded ] = useFonts({
+    Roboto_400Regular,
+    Roboto_100Thin,
+    Roboto_700Bold
+  })
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <HomeContainer>
+      {fontloaded ? <Routes/>: <ActivityIndicator/>} 
+      <StatusBar style="auto"/>
+    </HomeContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
