@@ -1,12 +1,13 @@
 import { ScrollView } from "react-native";
 import { DailyChart } from "./Charts/DailyChart";
 import { StatisticContainer, ChartTitleContainer, Title, Subtitle, ChartContainer } from "./styles";
+import { WeekChart } from "./Charts/WeekChart";
 
 export function Statistic(){
     return(
         <ScrollView>
             <StatisticContainer>
-                <ChartContainer>
+                <ChartContainer variant="first">
                     <ChartTitleContainer>
                         <Title>
                             Ontem
@@ -26,7 +27,7 @@ export function Statistic(){
                             Dia/Consumo (R$)
                         </Subtitle>
                     </ChartTitleContainer>
-                    <DailyChart/>
+                    <WeekChart/>
                 </ChartContainer>
             </StatisticContainer>
         </ScrollView>

@@ -1,0 +1,50 @@
+{
+    "weekly_metrics": [
+      {
+        "interval": "0",
+        "value": 0.20
+      },
+      {
+        "interval": "2",
+        "value": 0.23
+      },
+      {
+        "interval": "3",
+        "value": 0.24
+      }
+    ],
+    "daily_metrics": [
+      {
+        "interval": "0-4",
+        "value": 0.20
+      },
+      {
+        "interval": "4-8",
+        "value": 0.23
+      },
+      {
+        "interval": "8-12",
+        "value": 0.24
+      }
+    ],
+    "monthly_metrics": [
+      {
+        "interval": "1",
+        "value": 0.20,
+        "predicted": true
+      },
+      {
+        "interval": "2",
+        "value": 0.23,
+        "predicted": true
+      },
+      {
+        "interval": "3",
+        "value": 0.24,
+        "predicted": false
+      }
+    ]
+}
+
+    
+

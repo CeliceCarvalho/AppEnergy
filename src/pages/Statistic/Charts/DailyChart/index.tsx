@@ -1,5 +1,8 @@
+import { useEffect, useState } from "react";
 import { ChartContainer } from "./styles";
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryGroup } from "victory-native";
+import axios from 'axios'
+import { Text } from "react-native";
 
 const data = {
     "1":[
@@ -50,11 +53,47 @@ const labelStyles = {
     fontFamily: 'Seravek',
     opacity: 0.5,
   };
+
+interface DailyMetricsType{
+  metrics: DailyMetric[]
+}
+
+interface DailyMetric{
+  interval: string,
+  value: number
+}
   
 
 export function DailyChart(){
+  const [ dailyMetrics, setDailyMetrics ] = useState<DailyMetricsType>({
+    metrics: []
+})
+  const [ error, setError ] = useState('')
+
+  useEffect(() => {
+    fetch('http://192.168.0.209:3000/weekly_metrics')
+    .then(response => response.json())
+    .then(data => {
+      setDailyMetrics(data);
+    })
+    .catch(error => {
+      setError('Ocorreu um erro ao carregar os dados')
+    })
+      
+  }, []);
+
+
     return(
        <ChartContainer>
+        {dailyMetrics && dailyMetrics.metrics && dailyMetrics.metrics.length > 0 ? (
+          dailyMetrics.metrics.map(metrics => {
+            return(
+              <Text>{metrics.interval}</Text>
+            )
+          })
+        ): (
+          <Text>{error}</Text>
+        )}
         <VictoryChart width={390} padding={{top: 50, left: 40, right:58, bottom: 80}}>
             <VictoryGroup 
               animate={{

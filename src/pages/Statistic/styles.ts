@@ -1,4 +1,5 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
+import { LanguageVariant } from "typescript";
 
 export const StatisticContainer = styled.View`
     display: flex;
@@ -6,11 +7,20 @@ export const StatisticContainer = styled.View`
     gap: 32px;
 `
 
-export const ChartContainer = styled.View`
+interface ChartContainerProps{
+    variant?: 'first'
+}
+
+export const ChartContainer = styled.View<ChartContainerProps>`
+
     background-color: #fff;
     border-radius: 32px;
     width: 370px;
     height: 320px;
+
+    ${(props:ChartContainerProps) => props.variant === 'first' && css`
+        margin-top: 100px;
+    `}
 `
 
 export const ChartTitleContainer = styled.View`
