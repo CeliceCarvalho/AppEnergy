@@ -1,10 +1,12 @@
 import styled, { css } from "styled-components/native";
-import { LanguageVariant } from "typescript";
 
 export const StatisticContainer = styled.View`
     display: flex;
     align-items: center;
     gap: 32px;
+    padding-bottom: 48px;
+
+    background-color: #DAE4ED;
 `
 
 interface ChartContainerProps{
