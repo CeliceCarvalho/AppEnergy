@@ -34,9 +34,8 @@ export function GoalChart() {
   const [metrics, setMetrics] = useState<Metrics[]>([]);
 
   useEffect(() => {
-    axios.get("http://192.168.0.90:5000/metrics/monthly").then((response) => {
+    axios.get("http://192.168.0.209:5000/metrics/monthly").then((response) => {
       setMetrics(response.data.monthly_metrics);
-      console.log(response.data.monthly_metrics);
     });
   }, []);
 
@@ -46,13 +45,6 @@ export function GoalChart() {
 
   const costEstimate = metrics.findLast((metrics) => metrics.predicted);
 
-  if (actualCostComsuption) {
-    const percentage = (actualCostComsuption.accumulated / goal) * 100;
-  }
-
-  console.log(percentage);
-
-  console.log(actualCostComsuption);
   return (
     <ChartContainer>
       <VictoryPie
@@ -61,7 +53,7 @@ export function GoalChart() {
         data={[
           { x: "", y: percentage },
           { x: "", y: 100 - percentage },
-        ]}
+                     ]}
         style={{
           labels: {
             fill: "#D8E3EC",

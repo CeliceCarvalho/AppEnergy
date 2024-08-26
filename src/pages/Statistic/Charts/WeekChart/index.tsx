@@ -18,14 +18,22 @@ interface WeeklyMetric {
   value: number;
 }
 
+const daysOfWeek =  ['Dom', 'Seg', 'Ter', 'Qua', 'Qui','Sex', 'Sab']
+
 export function WeeklyChart() {
   const [weeklyMetrics, setWeeklyMetrics] = useState<WeeklyMetric[]>([]);
 
   useEffect(() => {
-    axios.get("http://192.168.0.90:5000/metrics/weekly").then((response) => {
+    axios.get("http://192.168.0.209:5000/metrics/weekly").then((response) => {
       setWeeklyMetrics(response.data.weekly_metrics);
     });
   }, []);
+
+  if(weeklyMetrics){
+    weeklyMetrics.map(metrics => {
+      metrics.interval = daysOfWeek[Number(metrics.interval)]
+    })
+  }
 
   return (
     <ChartContainer>

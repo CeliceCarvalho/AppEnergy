@@ -12,7 +12,6 @@ import {
   OpenSans_400Regular_Italic
 } from "@expo-google-fonts/open-sans";
 import { Routes } from "./src/routes/index";
-import { ScrollView } from "react-native";
 
 export default function App() {
   const [fontloaded] = useFonts({
@@ -31,7 +30,6 @@ export default function App() {
   }
 
   return (
-    
       <Routes />
   );
 }

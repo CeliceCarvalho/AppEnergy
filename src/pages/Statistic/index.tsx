@@ -19,7 +19,7 @@ export function Statistic() {
             <Title>Esse mês</Title>
             <Subtitle>Dia/Consumo (R$)</Subtitle>
           </ChartTitleContainer>
-          <MonthlyChart />
+          <MonthlyChart/>
         </ChartContainer>
         <ChartContainer>
           <ChartTitleContainer>

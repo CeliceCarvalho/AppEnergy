@@ -2,12 +2,13 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { Overview } from "../pages/Overview/index";
 import { Text } from "react-native";
 import { Statistic } from "../pages/Statistic";
+import { MetricsContextProvider } from "../contexts/MetricsContext";
 
 const Tab = createMaterialTopTabNavigator();
 
 export function AppRouter() {
   return (
-    <Tab.Navigator
+      <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: "#FFC01E",
         tabBarStyle: {
@@ -65,5 +66,6 @@ export function AppRouter() {
         }}
       />
     </Tab.Navigator>
+
   );
 }

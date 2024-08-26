@@ -22,7 +22,7 @@ export function DailyChart() {
   const [dailyMetrics, setDailyMetrics] = useState<DailyMetric[]>([]);
 
   useEffect(() => {
-    axios.get("http://192.168.0.90:5000/metrics/daily").then((response) => {
+    axios.get("http://192.168.0.209:5000/metrics/daily").then((response) => {
       setDailyMetrics(response.data.daily_metrics);
     });
   }, []);

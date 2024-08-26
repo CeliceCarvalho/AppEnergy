@@ -19,13 +19,11 @@ export function MonthlyChart() {
   const [monthlyMetrics, setMonthlyMetrics] = useState<MonthlyMetric[]>([]);
 
   useEffect(() => {
-    axios.get("http://192.168.0.90:5000/metrics/monthly").then((response) => {
+    axios.get("http://192.168.0.209:5000/metrics/monthly").then((response) => {
       setMonthlyMetrics(response.data.monthly_metrics);
       console.log(response.data.monthly_metrics);
     });
   }, []);
-
-  console.log(monthlyMetrics);
 
   const filteredMonthlyMetrics = monthlyMetrics.map(
     ({ predicted, value, ...rest }) => rest
